@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Pill - $PILL</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      color: #1a1a1a;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 80px 20px 60px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .pill-effect {
+      display: inline-block;
+      padding: 25px 50px;
+      border-radius: 100px;
+      border: 4px solid #1a1a1a;
+      font-size: 3.2em;
+      font-weight: 800;
+      background: linear-gradient(45deg, #ffffff, #f8f9fa);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      transform: translateY(0);
+      transition: all 0.3s ease;
+    }
+
+    .pill-effect:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    h1 {
+      margin: 0.5em 0;
+    }
+
+    p {
+      font-size: 1.3em;
+      font-weight: 600;
+      color: #2c3e50;
+      margin: 20px 0;
+    }
+
+    .logo {
+      width: 350px;
+      margin: 40px auto;
+      display: block;
+      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
+    }
+
+    .pill-container {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin: 10px auto;
+      flex-wrap: wrap;
+      max-width: 800px;
+      padding: 0 20px;
+    }
+
+    .pill-option {
+      border: 3px solid #1a1a1a;
+      padding: 18px 35px;
+      font-size: 1.4em;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      color: #1a1a1a;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pill-option::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+      transition: left 0.5s;
+    }
+
+    .pill-option:hover::before {
+      left: 100%;
+    }
+
+    .pill-option:hover {
+      background: #1a1a1a;
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .community-section {
+      margin: 0 auto;
+      max-width: 800px;
+    }
+
+    .community-button {
+      display: inline-block;
+      background: linear-gradient(45deg, #1da1f2, #0d8bd9);
+      color: white;
+      padding: 20px 40px;
+      font-size: 1.5em;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 50px;
+      box-shadow: 0 6px 20px rgba(29, 161, 242, 0.3);
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .community-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(29, 161, 242, 0.4);
+      background: linear-gradient(45deg, #0d8bd9, #1da1f2);
+    }
+
+    .section {
+      margin: 100px auto;
+      max-width: 900px;
+      padding: 0 30px;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 20px;
+      padding: 50px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
+    }
+
+    .section h2 {
+      font-size: 2.5em;
+      font-weight: 800;
+      margin-bottom: 30px;
+      color: #1a1a1a;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .section p {
+      font-size: 1.2em;
+      max-width: 700px;
+      margin: auto;
+      line-height: 1.8;
+      color: #2c3e50;
+    }
+
+    footer {
+      margin-top: 120px;
+      font-size: 1em;
+      font-weight: 600;
+      padding: 40px 20px;
+      background: rgba(0, 0, 0, 0.05);
+      color: #2c3e50;
+    }
+
+    @media (max-width: 768px) {
+      .pill-effect {
+        font-size: 2.5em;
+        padding: 20px 40px;
+      }
+
+      .pill-container {
+        gap: 20px;
+        margin: 40px auto;
+      }
+
+      .pill-option {
+        font-size: 1.2em;
+        padding: 15px 25px;
+      }
+
+      .section {
+        margin: 60px auto;
+        padding: 30px 20px;
+      }
+
+      .section h2 {
+        font-size: 2em;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1><span class="pill-effect">THE PILL - $PILL</span></h1>
+    <img src="logo.png" alt="The Pill Logo" class="logo" />
+    <p>Which side do you choose?</p>
+    <p>CA: </p>
+    <a class="community-button" href="https://x.com" target="_blank">Join X Community</a>
+  </header>
+
+
+
+
+  <div class="section">
+    <h2>What is $PILL?</h2>
+    <p>
+      $PILL is more than a meme coin. It's a symbol of choice, identity, and the unstoppable force of community. In a
+      world of forks and vibes, $PILL challenges you to choose your side. Pump or Bonk — red or blue — the decision
+      defines your destiny.
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>The Pill War</h2>
+    <p>
+      Pump.fun and Bonk.fun are the new battlegrounds. Two sides, one war. Shillers, builders, holders — the time is
+      now. Memes are weapons, liquidity is armor, and hype is your energy. Join the chaos. Stir the timeline. Make them
+      choose.
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>How to Join</h2>
+    <p>
+      1. Pick your side by clicking above.<br />
+      2. Shill it relentlessly.<br />
+      3. Hold the line. Never fade your bags.<br />
+      4. Watch the charts. Meme harder when it pumps.
+    </p>
+  </div>
+
+  <footer>
+    <p>The Meme War Has Begun. Choose Wisely. $PILL</p>
+  </footer>
+</body>
+
+</html>
